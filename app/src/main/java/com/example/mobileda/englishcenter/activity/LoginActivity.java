@@ -65,6 +65,7 @@
 
 package com.example.mobileda.englishcenter.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -115,12 +116,19 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.btn_login)
     void onClickBtnLogin(View view)
     {
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+                R.style.MyAlertDialogStyle);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Đang xác thực.....");
+        progressDialog.show();
+
         try {
             String email = edtUname.getText().toString();
             String password = edtPwd.getText().toString();
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressDialog.dismiss();
                     if (task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
@@ -132,6 +140,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         catch (Exception e)
         {
+            progressDialog.dismiss();
             Toast.makeText(LoginActivity.this,"Nhập thông tin cần thiết vào!",Toast.LENGTH_SHORT).show();
         }
 

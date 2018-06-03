@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
@@ -33,12 +36,20 @@
         android:text="Giá:"
         android:textSize="20sp"
         />
+
     <EditText
         android:id="@+id/edt_cost"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:backgroundTint="@color/english"/>
+        android:backgroundTint="@color/english"
+        android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VNĐ"
+            android:textSize="20sp" />
 </LinearLayout>
 
     <LinearLayout
@@ -62,6 +73,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="110dp"
@@ -69,18 +81,18 @@
             android:text="Ngày học:"
             android:textSize="20sp"
             />
-        <EditText
-            android:id="@+id/edt_time"
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:backgroundTint="@color/english"/>
+            android:id="@+id/spn_time"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="110dp"
@@ -88,12 +100,10 @@
             android:text="Trạng thái:"
             android:textSize="20sp"
             />
-        <EditText
-            android:id="@+id/edt_state"
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:backgroundTint="@color/english"/>
+            android:id="@+id/spn_state"/>
     </LinearLayout>
 
     <Button
@@ -104,5 +114,20 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/english"
         android:textColor="@color/white"/>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/circular_progress_bar"
+            />
+    </RelativeLayout>
 
 </LinearLayout>

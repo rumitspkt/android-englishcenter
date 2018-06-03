@@ -28,6 +28,8 @@ public class CoursesFragment extends android.support.v4.app.Fragment {
 
     }
 
+
+
     CourseAdapter adapter;
 
     List<Course> courses;
@@ -44,15 +46,32 @@ public class CoursesFragment extends android.support.v4.app.Fragment {
         courses = CourseUtil.getInstance().getCoursesTeacher();
         Log.e(TAG, "onCreateView: " + courses.size() );
 
+        adapter = new CourseAdapter(getActivity(), courses);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rvItems.setLayoutManager(layoutManager);
         rvItems.setHasFixedSize(true);
-        rvItems.setAdapter(new CourseAdapter(getActivity(), courses));
+        rvItems.setAdapter(adapter);
         rvItems.addItemDecoration(new DividerItemDecoration(rvItems.getContext(), DividerItemDecoration.VERTICAL));
 
 
         return rootView;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if (isVisibleToUser) {
+            Log.d("MyFragment", "Fragment is visible.");
+            courses = CourseUtil.getInstance().getCoursesTeacher();
+            if(adapter != null)
+                adapter.notifyDataSetChanged();
+        }
+
+        else {
+            Log.d("MyFragment", "Fragment is not visible.");
+        }
     }
 
 

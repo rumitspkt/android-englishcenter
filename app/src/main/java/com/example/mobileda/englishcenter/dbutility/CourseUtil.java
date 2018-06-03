@@ -54,6 +54,7 @@ public class CourseUtil {
                         courses.add(course);
                     }
                     Log.e(TAG, "onComplete: " + courses.size());
+                    updateCoursesByTeacher();
                 }
 
             }
@@ -61,6 +62,7 @@ public class CourseUtil {
     }
 
     public void updateCoursesByTeacher(){
+        coursesTeacher.clear();
         final String id = FirebaseAuth.getInstance().getUid();
         for (final Course course: courses
              ) {

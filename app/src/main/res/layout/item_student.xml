@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgMessage"
+        android:layout_width="55dp"
+        android:layout_height="85dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/student" />
+
+    <TextView
+        android:id="@+id/tv_student"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/imgMessage"
+        android:textSize="25dp"
+        tools:text="Nguyễn Văn Rum" />
+
+
+    <TextView
+        android:id="@+id/tv_desciption"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignBottom="@+id/imgMessage"
+        android:layout_alignStart="@+id/tv_student"
+        android:layout_marginBottom="-10dp"
+        tools:text="Bình Định - 26/11/1998 - Cử nhân" />
+
+    <TextView
+        android:id="@+id/tv_midterm_mark1"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_alignBottom="@+id/tv_desciption"
+        android:layout_alignStart="@+id/tv_student"
+        android:layout_marginBottom="0dp"
+        tools:text="Giữa kì: " />
+
+    <TextView
+        android:id="@+id/tv_midterm_mark2"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_alignBottom="@+id/tv_desciption"
+        android:layout_toEndOf="@+id/tv_midterm_mark1"
+        tools:text="8.5" />
+
+    <TextView
+        android:id="@+id/tv_finalterm_mark1"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_alignBottom="@+id/tv_desciption"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="126dp"
+        tools:text="Cuối kì: " />
+
+    <TextView
+        android:id="@+id/tv_finalterm_mark2"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_alignBottom="@+id/tv_desciption"
+        android:layout_marginStart="-126dp"
+        android:layout_toEndOf="@+id/tv_finalterm_mark1"
+        tools:text="10" />
+
+
+</RelativeLayout>

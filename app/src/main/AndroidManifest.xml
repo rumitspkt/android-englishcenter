@@ -23,6 +23,7 @@
         <activity android:name=".activity.ProfileActivity" />
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.CourseActivity" />
+        <activity android:name=".activity.MarkActivity" />
 
     </application>
 
