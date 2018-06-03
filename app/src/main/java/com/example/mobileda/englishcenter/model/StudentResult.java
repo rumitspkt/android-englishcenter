@@ -5,8 +5,8 @@ public class StudentResult {
     private String course_id;
     private String student;
     private String description;
-    private double midtermMark;
-    private double finaltermMark;
+    private Float midtermMark;
+    private Float finaltermMark;
 
     public String getStudent_id() {
         return student_id;
@@ -40,33 +40,41 @@ public class StudentResult {
         this.description = description;
     }
 
-    public double getMidtermMark() {
+    public Float getMidtermMark() {
         return midtermMark;
     }
 
-    public void setMidtermMark(double midtermMark) {
+    public void setMidtermMark(Float midtermMark) {
         this.midtermMark = midtermMark;
     }
 
-    public double getFinaltermMark() {
+    public Float getFinaltermMark() {
         return finaltermMark;
     }
 
-    public void setFinaltermMark(double finaltermMark) {
+    public void setFinaltermMark(Float finaltermMark) {
         this.finaltermMark = finaltermMark;
     }
 
-    public StudentResult() {
+    public StudentResult(String student, String description) {
+        this.student = student;
+        this.description = description;
     }
 
-    public StudentResult(String student, String description, double midtermMark, double finaltermMark) {
+    public StudentResult(String student, String description, Float midtermMark) {
+        this.student = student;
+        this.description = description;
+        this.midtermMark = midtermMark;
+    }
+
+    public StudentResult(String student, String description, Float midtermMark, Float finaltermMark) {
         this.student = student;
         this.description = description;
         this.midtermMark = midtermMark;
         this.finaltermMark = finaltermMark;
     }
 
-    public StudentResult(String student_id, String course_id, String student, String description, double midtermMark, double finaltermMark) {
+    public StudentResult(String student_id, String course_id, String student, String description, Float midtermMark, Float finaltermMark) {
         this.student_id = student_id;
         this.course_id = course_id;
         this.student = student;
@@ -74,5 +82,4 @@ public class StudentResult {
         this.midtermMark = midtermMark;
         this.finaltermMark = finaltermMark;
     }
-
 }

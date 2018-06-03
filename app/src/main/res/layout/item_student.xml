@@ -49,6 +49,7 @@
         tools:text="Giữa kì: " />
 
     <TextView
+        android:layout_marginRight="20dp"
         android:id="@+id/tv_midterm_mark2"
         android:layout_width="wrap_content"
         android:layout_height="29dp"
@@ -61,8 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="29dp"
         android:layout_alignBottom="@+id/tv_desciption"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="126dp"
+        android:layout_toEndOf="@+id/tv_midterm_mark2"
         tools:text="Cuối kì: " />
 
     <TextView
@@ -70,7 +70,6 @@
         android:layout_width="wrap_content"
         android:layout_height="29dp"
         android:layout_alignBottom="@+id/tv_desciption"
-        android:layout_marginStart="-126dp"
         android:layout_toEndOf="@+id/tv_finalterm_mark1"
         tools:text="10" />
 

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.example.mobileda.englishcenter.R;
 import com.example.mobileda.englishcenter.dbutility.CourseUtil;
+import com.example.mobileda.englishcenter.dbutility.StudentUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
         CourseUtil.getInstance().updateCoursesByTeacher();
+        StudentUtil.getInstance().update();
 
         android.view.View header = navigation.getHeaderView(0);
         LinearLayout linear = header.findViewById(R.id.layout_profile);
@@ -94,8 +96,8 @@ public class HomeActivity extends AppCompatActivity {
                         // add navigation drawer item onclick method here
                         break;
                     case R.id.nav_mark:
-                        //Do some thing here
-                        // add navigation drawer item onclick method here
+                        intent = new Intent(HomeActivity.this, MarkActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.nav_quizs:
 
@@ -106,9 +108,6 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_subjects:
                         intent = new Intent(HomeActivity.this, CourseActivity.class);
                         startActivity(intent);
-                        break;
-                    case R.id.nav_testing_schedule:
-
                         break;
                 }
                 return false;

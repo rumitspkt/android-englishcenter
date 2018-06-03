@@ -18,17 +18,14 @@
         android:title="Lớp học"
         android:icon="@mipmap/note"/>
     <item
-        android:id="@+id/nav_testing_schedule"
-        android:title="Lịch thi"
-        android:icon="@mipmap/calendar1"/>
+        android:id="@+id/nav_mark"
+        android:title="Nhập điểm"
+        android:icon="@mipmap/loupe"/>
     <item
         android:id="@+id/nav_quizs"
         android:title="Quizs"
         android:icon="@mipmap/exam"/>
-    <item
-        android:id="@+id/nav_mark"
-        android:title="Nhập điểm"
-        android:icon="@mipmap/loupe"/>
+
     <item
         android:id="@+id/nav_income"
         android:title="Thu nhập"

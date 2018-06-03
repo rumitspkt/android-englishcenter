@@ -12,12 +12,12 @@ import com.example.mobileda.englishcenter.model.StudentResult;
 
 import java.util.List;
 
-public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DataViewHolder> {
+public class StudentResultAdapter extends RecyclerView.Adapter<StudentResultAdapter.DataViewHolder> {
 
     private List<StudentResult> students;
     private Context context;
 
-    public StudentAdapter(Context context, List<StudentResult> students) {
+    public StudentResultAdapter(Context context, List<StudentResult> students) {
         this.context = context;
         this.students = students;
     }
@@ -28,7 +28,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DataView
     }
 
     @Override
-    public StudentAdapter.DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public StudentResultAdapter.DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView;
 
         itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_student, parent, false);
@@ -41,8 +41,23 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DataView
         StudentResult student = students.get(position);
         holder.tvStudent.setText(student.getStudent());
         holder.tvDesciption.setText(student.getDescription());
-        holder.tvMidtermMark.setText(String.valueOf(student.getMidtermMark()));
-        holder.tvFinaltermMark.setText(String.valueOf(student.getFinaltermMark()));
+        holder.tv1.setText("Giữa kỳ: ");
+        holder.tv2.setText("Cuối kỳ: ");
+
+
+        Object mid = student.getMidtermMark();
+        Object final1 = student.getFinaltermMark();
+
+        if(mid != null){
+            holder.tvMidtermMark.setText(String.valueOf(mid));
+        }else{
+            holder.tvMidtermMark.setText(" ");
+        }
+        if(mid != null){
+            holder.tvFinaltermMark.setText(String.valueOf(final1));
+        }else{
+            holder.tvFinaltermMark.setText(" ");
+        }
     }
 
     public static class DataViewHolder extends RecyclerView.ViewHolder {
@@ -51,6 +66,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DataView
         private TextView tvDesciption;
         private TextView tvMidtermMark;
         private TextView tvFinaltermMark;
+        private TextView tv1, tv2;
 
         public DataViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +75,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DataView
             tvDesciption =  itemView.findViewById(R.id.tv_desciption);
             tvMidtermMark = itemView.findViewById(R.id.tv_midterm_mark2);
             tvFinaltermMark = itemView.findViewById(R.id.tv_finalterm_mark2);
+
+            tv1 = itemView.findViewById(R.id.tv_midterm_mark1);
+            tv2 = itemView.findViewById(R.id.tv_finalterm_mark1);
 
         }
     }

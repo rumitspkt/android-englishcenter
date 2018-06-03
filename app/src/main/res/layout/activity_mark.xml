@@ -1,60 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/layout_root"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.MarkActivity">
+    <android.support.design.widget.TabLayout
+        android:background="#c8c8c9"
+        android:layout_alignParentTop="true"
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nhập điểm"
-        android:gravity="center"
-        android:textSize="40sp"
+        android:layout_height="48dp"
+        app:tabSelectedTextColor="@color/english"
+        app:tabTextColor="#ffffff"
+        app:tabBackground="@color/blue_primary_dark"
+        app:tabIndicatorColor="@color/english"
+        >
+
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/tab_layout"
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lớp:"
-            android:textSize="20sp"/>
-
-        <Spinner
-            android:id="@+id/spn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_marginTop="1dp"
-        android:id="@+id/loadingPanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" >
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:indeterminateDrawable="@drawable/circular_progress_bar"
-            />
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_margin="15dp"
-        android:id="@+id/rv_courses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v7.widget.RecyclerView>
-
-
-
-</LinearLayout>
+</RelativeLayout>

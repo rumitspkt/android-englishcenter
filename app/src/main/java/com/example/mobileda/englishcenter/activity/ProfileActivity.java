@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -55,8 +57,11 @@ public class ProfileActivity extends AppCompatActivity {
                         edtName.setText(teacher.getName());
                     if(teacher.getAddress() != null)
                         edtAddress.setText(teacher.getAddress());
-                    if(teacher.getBirthday() != null)
-                        edtBirthday.setText(teacher.getBirthday().toString());
+                    if(teacher.getBirthday() != null){
+                        String s = new SimpleDateFormat("dd/MM/yyyy").format(teacher.getBirthday());
+                        edtBirthday.setText(s);
+                    }
+
                     if(teacher.getIncome() != 0)
                         edtIncome.setText(String.valueOf(teacher.getIncome()));
                     if(teacher.getLiteracy() != null)
