@@ -1,6 +1,8 @@
 package com.example.mobileda.englishcenter.model;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Teacher{
 
@@ -10,6 +12,14 @@ public class Teacher{
     private String address;
     private Date birthday;
     private String literacy;
+
+    public Teacher(String name, String address, Date birthday, String literacy) {
+        this.name = name;
+        this.address = address;
+        this.birthday = birthday;
+        this.literacy = literacy;
+    }
+
     private int income;
 
     public String getId() {
@@ -78,5 +88,15 @@ public class Teacher{
         this.birthday = birthday;
         this.literacy = literacy;
         this.income = income;
+    }
+
+    public Map<String, Object> toMap(){
+        Map<String, Object> noteDataMap = new HashMap<>();
+        noteDataMap.put("name", name);
+        noteDataMap.put("literacy", literacy);
+        noteDataMap.put("birthday", birthday);
+        noteDataMap.put("address", address);
+        noteDataMap.put("income", income);
+        return  noteDataMap;
     }
 }

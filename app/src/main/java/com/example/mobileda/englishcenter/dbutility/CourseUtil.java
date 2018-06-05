@@ -83,5 +83,16 @@ public class CourseUtil {
 
     }
 
+    public Course getCourse(String id){
+        for (Course course: coursesTeacher
+             ) {
+            if(course.getId().equals(id)){
+                return course;
+            }
+
+        }
+        return null;
+    }
+
 
 }

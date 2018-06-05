@@ -77,6 +77,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mobileda.englishcenter.R;
+import com.example.mobileda.englishcenter.utility.Utilities;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressDialog.dismiss();
                     if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                         startActivity(intent);
                     } else
@@ -145,6 +146,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
+    @OnClick(R.id.layout_root)
+    void clickBackground(View view){
+        Utilities.hideSoftKeyboard(this);
+    }
+
     @OnClick(R.id.btn_signup)
     void onClickBtnSignup(View view)
     {

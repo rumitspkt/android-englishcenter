@@ -82,4 +82,9 @@ public class StudentResult {
         this.midtermMark = midtermMark;
         this.finaltermMark = finaltermMark;
     }
+
+    @Override
+    public String toString(){
+        return this.student;
+    }
 }

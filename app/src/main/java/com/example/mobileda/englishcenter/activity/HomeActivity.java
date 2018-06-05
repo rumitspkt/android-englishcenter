@@ -2,19 +2,26 @@ package com.example.mobileda.englishcenter.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.mobileda.englishcenter.R;
 import com.example.mobileda.englishcenter.dbutility.CourseUtil;
 import com.example.mobileda.englishcenter.dbutility.StudentUtil;
+import com.example.mobileda.englishcenter.dbutility.TeacherUtil;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.BindView;
@@ -56,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
 
         CourseUtil.getInstance().updateCoursesByTeacher();
         StudentUtil.getInstance().update();
+        TeacherUtil.getInstance().update();
 
         android.view.View header = navigation.getHeaderView(0);
         LinearLayout linear = header.findViewById(R.id.layout_profile);
@@ -64,6 +72,20 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        final TextView edtName = header.findViewById(R.id.tv_name);
+        db.collection("teachers").document(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if(document.get("name") != null)
+                        edtName.setText(document.get("name").toString());
+                    else
+                        edtName.setText("Người lạ");
+                }
             }
         });
 
@@ -92,6 +114,7 @@ public class HomeActivity extends AppCompatActivity {
                         // add navigation drawer item onclick method here
                         break;
                     case R.id.nav_home:
+                        drawerLayout.closeDrawer(Gravity.LEFT);
                         //Do some thing here
                         // add navigation drawer item onclick method here
                         break;
@@ -103,7 +126,8 @@ public class HomeActivity extends AppCompatActivity {
 
                         break;
                     case R.id.nav_schedule:
-
+                        intent = new Intent(HomeActivity.this, ScheduleActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.nav_subjects:
                         intent = new Intent(HomeActivity.this, CourseActivity.class);

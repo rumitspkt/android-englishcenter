@@ -24,7 +24,6 @@ import com.example.mobileda.englishcenter.model.Student;
 import com.example.mobileda.englishcenter.model.StudentResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -56,7 +55,6 @@ public class MarksFragment extends android.support.v4.app.Fragment {
     ArrayAdapter<Course> dataAdapter;
 
     FirebaseFirestore db;
-    FirebaseAuth auth;
 
     @BindView(R.id.rv_marks)
     RecyclerView rvItems;
